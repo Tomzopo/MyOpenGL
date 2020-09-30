@@ -10,14 +10,14 @@ include_directories( ${OPENGL_INCLUDE_DIRS} )
 set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
 set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 
-add_subdirectory( Dependencies/glfw )
+add_subdirectory(dependencies/glfw)
 
 if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
 endif()
 
 set( MyOpenGL-SRC
-        main.cpp
+        src/main.cpp
         )
 
 add_executable( MyOpenGL WIN32 ${MyOpenGL-SRC} )
