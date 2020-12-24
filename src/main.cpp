@@ -16,7 +16,9 @@ struct ShaderProgramSource {
 };
 
 static unsigned int CompileShader(unsigned int type, const std::string &source);
+
 static unsigned int CreateShader(const std::string &vertexShader, const std::string &fragmentShader);
+
 static ShaderProgramSource ParseShader(const std::string &filepath);
 
 int main() {
@@ -56,7 +58,7 @@ int main() {
                 -0.5f, 0.5f     // 3
         };
 
-        unsigned int indicies[] = {
+        unsigned int indices[] = {
                 0, 1, 2,
                 2, 3, 0
         };
@@ -70,11 +72,9 @@ int main() {
         GLCall(glEnableVertexAttribArray(0));
         GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, (const void *) nullptr));
 
-        IndexBuffer ib(indicies, 6);
+        IndexBuffer ib(indices, 6);
 
         ShaderProgramSource source = ParseShader("../res/shaders/Basics.shader");
-        //    std::cout<< "Vertex" << source.VertexSource << std::endl;
-        //    std::cout<< "Fragment" << source.FragmentSource << std::endl;
 
         unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
         GLCall(glUseProgram(shader));
