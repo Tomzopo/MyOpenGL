@@ -4,6 +4,7 @@
 #ifndef MYOPENGL_RENDERER_H
 #define MYOPENGL_RENDERER_H
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #define ASSERT(x) if (!(x)) __builtin_trap()
