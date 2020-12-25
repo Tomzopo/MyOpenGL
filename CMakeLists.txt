@@ -20,7 +20,7 @@ set(MyOpenGL-SRC
         src/main.cpp
         src/Renderer.cpp
         src/VertexBuffer.cpp
-        src/IndexBuffer.cpp src/VertexArray.cpp include/VertexArray.h include/VertexBufferLayout.h)
+        src/IndexBuffer.cpp src/VertexArray.cpp include/VertexArray.h include/VertexBufferLayout.h include/Shader.h src/Shader.cpp)
 
 add_executable( MyOpenGL WIN32 ${MyOpenGL-SRC} )
 target_link_libraries( MyOpenGL ${OPENGL_LIBRARIES} glfw glad)
