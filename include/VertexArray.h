@@ -6,8 +6,8 @@
 #define MYOPENGL_VERTEXARRAY_H
 
 #include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
 
+class VertexBufferLayout;
 
 class VertexArray {
 private:
