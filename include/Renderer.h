@@ -10,7 +10,11 @@
 #include "IndexBuffer.h"
 #include "Shader.h"
 
+#ifdef __APPLE__
 #define ASSERT(x) if (!(x)) __builtin_trap()
+#elif _WIN32
+#define ASSERT(x) if (!(x)) __debugbreak()
+#endif
 #define GLCall(x) GLClearError();x;ASSERT(GLLogCall(#x, __FILE__, __LINE__))
 
 void GLClearError();
