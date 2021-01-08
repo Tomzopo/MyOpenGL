@@ -70,7 +70,7 @@ int main() {
         shader.Bind();
         shader.SetUniform4f("u_Color", 0.2f, 0.3f, 0.8f, 1.0f);
 
-        Texture texture("res/textures/Logo.png");
+        Texture texture("../res/textures/Logo.png");
         texture.Bind();
         shader.SetUniform1i("u_Texture", 0);
 
