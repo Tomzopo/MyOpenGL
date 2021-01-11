@@ -11,6 +11,7 @@ set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 
 add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glad)
+add_subdirectory(src/vendor/glm)
 
 if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
@@ -23,10 +24,11 @@ set(MyOpenGL-SRC
         src/IndexBuffer.cpp
         src/VertexArray.cpp
         src/Shader.cpp
-        src/vendor/stb_image/stb_image.cpp src/Texture.cpp)
+        src/vendor/stb_image/stb_image.cpp
+        src/Texture.cpp)
 
 add_executable(MyOpenGL WIN32 ${MyOpenGL-SRC})
-target_link_libraries(MyOpenGL ${OPENGL_LIBRARIES} glfw glad)
+target_link_libraries(MyOpenGL ${OPENGL_LIBRARIES} glfw glad glm)
 target_include_directories(MyOpenGL PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src/vendor/stb_image)
 
 if (MSVC)
