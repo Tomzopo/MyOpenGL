@@ -8,7 +8,6 @@ find_package( OpenGL REQUIRED )
 set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
 set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
 
-
 add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glad)
 add_subdirectory(src/vendor/glm)
@@ -32,11 +31,16 @@ set(MyOpenGL-SRC
         src/vendor/imgui/imgui_widgets.cpp
         src/vendor/imgui/imgui_impl_glfw.cpp
         src/vendor/imgui/imgui_impl_opengl3.cpp
+        src/tests/TestClearColor.cpp
         )
 
 add_executable(MyOpenGL WIN32 ${MyOpenGL-SRC})
 target_link_libraries(MyOpenGL ${OPENGL_LIBRARIES} glfw glad glm)
-target_include_directories(MyOpenGL PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src/vendor/stb_image ${CMAKE_SOURCE_DIR}/src/vendor/imgui)
+target_include_directories(MyOpenGL PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_SOURCE_DIR}/src/tests
+        ${CMAKE_SOURCE_DIR}/src/vendor/stb_image
+        ${CMAKE_SOURCE_DIR}/src/vendor/imgui)
 
 if (MSVC)
     if (${CMAKE_VERSION} VERSION_LESS "3.6.0")
