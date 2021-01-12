@@ -24,12 +24,19 @@ set(MyOpenGL-SRC
         src/IndexBuffer.cpp
         src/VertexArray.cpp
         src/Shader.cpp
+        src/Texture.cpp
         src/vendor/stb_image/stb_image.cpp
-        src/Texture.cpp)
+        src/vendor/imgui/imgui.cpp
+        src/vendor/imgui/imgui_draw.cpp
+        src/vendor/imgui/imgui_demo.cpp
+        src/vendor/imgui/imgui_widgets.cpp
+        src/vendor/imgui/imgui_impl_glfw.cpp
+        src/vendor/imgui/imgui_impl_opengl3.cpp
+        )
 
 add_executable(MyOpenGL WIN32 ${MyOpenGL-SRC})
 target_link_libraries(MyOpenGL ${OPENGL_LIBRARIES} glfw glad glm)
-target_include_directories(MyOpenGL PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src/vendor/stb_image)
+target_include_directories(MyOpenGL PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/src/vendor/stb_image ${CMAKE_SOURCE_DIR}/src/vendor/imgui)
 
 if (MSVC)
     if (${CMAKE_VERSION} VERSION_LESS "3.6.0")
