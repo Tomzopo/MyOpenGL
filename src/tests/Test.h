@@ -11,8 +11,8 @@
 namespace test {
     class Test {
     public:
-        Test() {}
-        virtual ~Test() {}
+        Test() = default;
+        virtual ~Test() = default;
 
         virtual void OnUpdate(float deltaTime) {}
         virtual void OnRender() {}
@@ -21,7 +21,7 @@ namespace test {
 
     class TestMenu : public Test {
     public:
-        TestMenu(Test *&currentTestPointer);
+        explicit TestMenu(Test *&currentTestPointer);
 
         void OnImGuiRender() override;
 

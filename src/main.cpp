@@ -2,8 +2,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include <imgui/imgui.h>
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
@@ -11,13 +9,7 @@
 #include "Renderer.h"
 #include "Test.h"
 #include "TestClearColor.h"
-
-#include "VertexBuffer.h"
-#include "VertexBufferLayout.h"
-#include "IndexBuffer.h"
-#include "VertexArray.h"
-#include "Shader.h"
-#include "Texture.h"
+#include "TestTexture2D.h"
 
 int main() {
     GLFWwindow *window;
@@ -61,6 +53,7 @@ int main() {
         currentTest = testMenu;
 
         testMenu->RegisterTest<test::TestClearColor>("Clear Color");
+        testMenu->RegisterTest<test::TestTexture2D>("2D Texture");
 
         while (!glfwWindowShouldClose(window)) {
             GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));

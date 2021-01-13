@@ -18,6 +18,7 @@ namespace test {
         void OnImGuiRender() override;
     private:
         float m_ClearColor[4];
+
     };
 }
 
