@@ -32,7 +32,7 @@ set(MyOpenGL-SRC
         src/vendor/imgui/imgui_impl_glfw.cpp
         src/vendor/imgui/imgui_impl_opengl3.cpp
         src/tests/TestClearColor.cpp
-        )
+        src/tests/Test.cpp)
 
 add_executable(MyOpenGL WIN32 ${MyOpenGL-SRC})
 target_link_libraries(MyOpenGL ${OPENGL_LIBRARIES} glfw glad glm)
